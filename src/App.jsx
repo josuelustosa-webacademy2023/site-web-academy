@@ -1,7 +1,7 @@
-import viteLogo from './assets/logos/vite.svg';
-import reactLogo from './assets/logos/react.svg';
-import bootstrapLogo from './assets/logos/bootstrap.svg';
-import './App.css';
+import viteLogo from "./assets/images/logos/vite.svg";
+import reactLogo from "./assets/images/logos/react.svg";
+import bootstrapLogo from "./assets/images/logos/bootstrap.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
       <div className="container py-4 px-3 mx-auto">
         <h1>Vite + React + Bootstrap</h1>
         <div className="card">
-          Este projeto foi desenvolvido utilizando as principais ferramentas
-          de desenvolvimento vistas ao decorrer do curso, com objetivo de
-          refazer a página web oficial do Web Academy 2023.
+          Este projeto foi desenvolvido utilizando as principais ferramentas de
+          desenvolvimento vistas ao decorrer do curso, com objetivo de refazer a
+          página web oficial do Web Academy 2023.
           <br />
           <a
             href="https://webacademy.icomp.ufam.edu.br/"
