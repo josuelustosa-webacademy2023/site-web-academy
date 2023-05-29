@@ -1,6 +1,7 @@
 import viteLogo from "./assets/images/logos/vite.svg";
 import reactLogo from "./assets/images/logos/react.svg";
 import bootstrapLogo from "./assets/images/logos/bootstrap.svg";
+import Typography from "/components/Typography";
 import "./App.css";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         </a>
       </div>
       <div className="container py-4 px-3 mx-auto">
-        <h1>Vite + React + Bootstrap</h1>
+        <Typography className="h1">Vite + React + Bootstrap</Typography>
         <div className="card">
           Este projeto foi desenvolvido utilizando as principais ferramentas de
           desenvolvimento vistas ao decorrer do curso, com objetivo de refazer a
