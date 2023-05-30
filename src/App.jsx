@@ -1,46 +1,29 @@
-import viteLogo from "./assets/images/logos/vite.svg";
-import reactLogo from "./assets/images/logos/react.svg";
-import bootstrapLogo from "./assets/images/logos/bootstrap.svg";
+import React, { useState } from "react";
+
+// IMPORTANDO O BOTSTRAP
+import "bootstrap/dist/css/bootstrap.min.css";
+
+// Components
 import Typography from "/components/Typography";
+import NavBar from "/components/NavBar";
+
+// Styles
 import "./App.css";
 
+import constants from "./utils/constants";
+
 function App() {
+  const [selectedPage, setSelectedPage] = useState("/pagina-inicial");
+
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">
-          <img
-            src={bootstrapLogo}
-            className="logo bootstrap"
-            alt="Bootstrap logo"
-          />
-        </a>
-      </div>
-      <div className="container py-4 px-3 mx-auto">
-        <Typography className="h1">Vite + React + Bootstrap</Typography>
-        <div className="card">
-          Este projeto foi desenvolvido utilizando as principais ferramentas de
-          desenvolvimento vistas ao decorrer do curso, com objetivo de refazer a
-          página web oficial do Web Academy 2023.
-          <br />
-          <a
-            href="https://webacademy.icomp.ufam.edu.br/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary"
-          >
-            https://webacademy.icomp.ufam.edu.br/
-          </a>
-        </div>
-        <p className="read-the-docs">Desenvolvido por Josué Lustosa</p>
-      </div>
-    </>
+    <div>
+      <NavBar
+        pages={constants.PAGES}
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
+      <Typography className="h1">Hello World</Typography>
+    </div>
   );
 }
 
