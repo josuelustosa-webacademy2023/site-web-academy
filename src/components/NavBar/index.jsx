@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 
 // Styles
-import "./styles.css";
+import "./style.css";
 
 // Assets
 import webAcademyLogo from "../../assets/images/webacademylogo.png";

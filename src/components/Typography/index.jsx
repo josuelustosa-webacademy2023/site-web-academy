@@ -1,5 +1,8 @@
 import React from "react";
 
+// Styles
+import "./style.css";
+
 function Typography({ className, children }) {
   const Typography = className || "p";
 
