@@ -51,4 +51,37 @@ const IMAGES = [
   },
 ];
 
-export default { PAGES, IMAGES };
+const DATA_TABLE = [
+  {
+    column: [
+      {
+        name: "Disciplina",
+      },
+      {
+        name: "Tecnologias e Ferramentas",
+      },
+      {
+        name: "CH",
+      },
+    ],
+    row: [
+      {
+        discipline: "Fundamentos de HTML",
+        tech_tools: "HTML",
+        ch: 8,
+      },
+      {
+        discipline: "Fundamentos de CSS",
+        tech_tools: "CSS",
+        ch: 12,
+      },
+      {
+        discipline: "Fundamentos de JavaScript",
+        tech_tools: "JavaScript",
+        ch: 12,
+      },
+    ],
+  },
+];
+
+export default { PAGES, IMAGES, DATA_TABLE };

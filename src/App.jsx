@@ -8,8 +8,7 @@ import Typography from "./components/Typography";
 import NavBar from "./components/NavBar";
 import PageLayout from "./components/Layout/PageLayout";
 import BoxLayout from "./components/Layout/BoxLayout";
-
-import { Container, Row, Col } from "react-bootstrap";
+import CustomTable from "./components/CustomTable";
 
 // Styles
 import "./App.css";
@@ -35,6 +34,16 @@ function App() {
       />
     );
   }).filter((image) => image !== null);
+
+  const columnsData = constants.DATA_TABLE.reduce((acc, item) => {
+    return acc.concat(item.column.map((column) => column.name));
+  }, []);
+
+  const rowsData = constants.DATA_TABLE.reduce((acc, item) => {
+    return acc.concat(
+      item.row.map((row) => [row.discipline, row.tech_tools, row.ch])
+    );
+  }, []);
 
   return (
     <div>
@@ -77,6 +86,10 @@ function App() {
               metodologias e ferramentas modernas.
             </Typography>
           </div>
+        </BoxLayout>
+
+        <BoxLayout>
+          <CustomTable columns={columnsData} rows={rowsData} />
         </BoxLayout>
       </PageLayout>
     </div>
