@@ -46,7 +46,7 @@ const IMAGES = [
     id: 6,
     name: "Logo Tecnologia",
     path: "../assets/images/banner-tecnologias.png",
-    width: 350,
+    width: 300,
     height: "auto",
   },
 ];

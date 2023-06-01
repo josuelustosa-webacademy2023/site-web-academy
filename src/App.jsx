@@ -28,8 +28,9 @@ function App() {
       <img
         key={image.id}
         src={image.path}
-        className="justify-content-left"
+        className="image"
         alt={image.name}
+        title={image.name}
         width={image.width}
       />
     );
@@ -62,8 +63,9 @@ function App() {
           <div proportion={5}>
             <img
               src={constants.IMAGES[5].path}
-              className="justify-content-left"
+              className="image"
               alt={constants.IMAGES[5].name}
+              title={constants.IMAGES[5].name}
               width={constants.IMAGES[5].width}
             />
           </div>
