@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import PageLayout from "./components/Layout/PageLayout";
 import BoxLayout from "./components/Layout/BoxLayout";
 import CustomTable from "./components/CustomTable";
+import Footer from "./components/Footer";
 
 // Styles
 import "./App.css";
@@ -92,6 +93,8 @@ function App() {
           <CustomTable columns={columnsData} rows={rowsData} />
         </BoxLayout>
       </PageLayout>
+
+      <Footer />
     </div>
   );
 }
