@@ -1,45 +1,101 @@
-import viteLogo from "./assets/images/logos/vite.svg";
-import reactLogo from "./assets/images/logos/react.svg";
-import bootstrapLogo from "./assets/images/logos/bootstrap.svg";
+import React, { useState } from "react";
+
+// IMPORTANDO O BOTSTRAP
+import "bootstrap/dist/css/bootstrap.min.css";
+
+// Components
+import Typography from "./components/Typography";
+import NavBar from "./components/NavBar";
+import PageLayout from "./components/Layout/PageLayout";
+import BoxLayout from "./components/Layout/BoxLayout";
+import CustomTable from "./components/CustomTable";
+import Footer from "./components/Footer";
+
+// Styles
 import "./App.css";
 
+import constants from "./utils/constants";
+
 function App() {
+  const [selectedPage, setSelectedPage] = useState("/pagina-inicial");
+
+  const filterImages = constants.IMAGES.map((image) => {
+    if (image.id === 1 || image.id === 6) {
+      return null; // retorna null para as imagens que não devem buscadas
+    }
+
+    return (
+      <img
+        key={image.id}
+        src={image.path}
+        className="image"
+        alt={image.name}
+        title={image.name}
+        width={image.width}
+      />
+    );
+  }).filter((image) => image !== null);
+
+  const columnsData = constants.DATA_TABLE.reduce((acc, item) => {
+    return acc.concat(item.column.map((column) => column.name));
+  }, []);
+
+  const rowsData = constants.DATA_TABLE.reduce((acc, item) => {
+    return acc.concat(
+      item.row.map((row) => [row.discipline, row.tech_tools, row.ch])
+    );
+  }, []);
+
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">
-          <img
-            src={bootstrapLogo}
-            className="logo bootstrap"
-            alt="Bootstrap logo"
-          />
-        </a>
-      </div>
-      <div className="container py-4 px-3 mx-auto">
-        <h1>Vite + React + Bootstrap</h1>
-        <div className="card">
-          Este projeto foi desenvolvido utilizando as principais ferramentas de
-          desenvolvimento vistas ao decorrer do curso, com objetivo de refazer a
-          página web oficial do Web Academy 2023.
-          <br />
-          <a
-            href="https://webacademy.icomp.ufam.edu.br/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-primary"
-          >
-            https://webacademy.icomp.ufam.edu.br/
-          </a>
-        </div>
-        <p className="read-the-docs">Desenvolvido por Josué Lustosa</p>
-      </div>
-    </>
+    <div>
+      <NavBar
+        pages={constants.PAGES}
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
+
+      <PageLayout>
+        <BoxLayout title="Web Academy" classTitle="h1">
+          <div proportion={7}>
+            <Typography className="p">
+              É um projeto realizado pela Universidade Federal do Amazonas
+              (UFAM), em parceria com a Motorola Mobility Comércio de Produtos
+              Eletrônicos Ltda e Flextronics da Amazônia Ltda. O projeto visa a
+              formação de profissionais na área de Desenvolvimento em Web Full
+              Stack, com foco em alunos de graduação, pós-graduação e
+              profissionais do mercado com curso superior.
+            </Typography>
+          </div>
+          <div proportion={5}>{filterImages}</div>
+        </BoxLayout>
+
+        <BoxLayout title="Curso" classTitle="h2">
+          <div proportion={5}>
+            <img
+              src={constants.IMAGES[5].path}
+              className="image"
+              alt={constants.IMAGES[5].name}
+              title={constants.IMAGES[5].name}
+              width={constants.IMAGES[5].width}
+            />
+          </div>
+          <div proportion={7}>
+            <Typography className="p">
+              O objetivo do curso é formar profissionais capacitados em
+              desenvolviemnto web full stack, cobrindo todas as etapas do
+              desenvolvimento de uma aplicação de software, com o uso de
+              metodologias e ferramentas modernas.
+            </Typography>
+          </div>
+        </BoxLayout>
+
+        <BoxLayout>
+          <CustomTable columns={columnsData} rows={rowsData} />
+        </BoxLayout>
+      </PageLayout>
+
+      <Footer />
+    </div>
   );
 }
 

@@ -1,0 +1,12 @@
+.table-bordered {
+  text-align: center;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 2.5px solid #000000;
+}
+
+.table-bordered th {
+  font-size: 18px;
+}
